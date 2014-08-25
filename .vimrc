@@ -17,6 +17,8 @@ filetype plugin indent on
 syntax enable
 set background=dark
 colorscheme solarized
+set t_Co=256
+let g:solarized_termcolors=256
 
 
 " Better copy & paste
@@ -72,7 +74,7 @@ set tw=79    " width of document
 set nowrap   " don't automatically wrap on load
 set fo-=t    " don't automatically wrap text when typing
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
+" highlight ColorColumn ctermbg=233
 
 
 " Useful settings
@@ -100,4 +102,20 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+
+" Map jj to the esc key
+imap jj <Esc>
+
+
+" Settings for ctrlp
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+
+
+" Settings for NerdTree
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['.pyc$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*']
+let NERDTreeShowBookmarks=1
+map <F3> :NERDTreeToggle<CR>
 
