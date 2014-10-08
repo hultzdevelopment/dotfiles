@@ -8,6 +8,8 @@ autocmd BufWritePost .vimrc source %
 
 " Setup Pathogen to manage your plugins
 filetype off
+filetype plugin indent off
+
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
@@ -33,6 +35,12 @@ set bs=2
 
 " Rebind <Leader> key
 let mapleader = ","
+
+
+" Remap ctrl-s to save
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+:imap <c-s> <Esc><c-s>
 
 
 " Bind nohl
@@ -107,15 +115,37 @@ set noswapfile
 imap jj <Esc>
 
 
+" =========================
+" Plugins to Download
+" ========================
+"
+" Pathogen
+" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+"
+" Download all vim addons into ~/.vim/bundle and then call
+" execute pathogen#infect()
+" 
+" Ctrlp 
+" https://github.com/kien/ctrlp.vim
+"
+" Fugitive
+" https://github.com/tpope/fugitive
+"
+" Syntastic
+" https://github.com/scrooloose/syntastic
+"
+" Solarized Vim
+" https://github.com/altercation/vim-colors-solarized
+
 " Settings for ctrlp
 let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 'a'
 set wildignore+=*.pyc
 
 
-" Settings for NerdTree
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['.pyc$']
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*']
-let NERDTreeShowBookmarks=1
-map <F3> :NERDTreeToggle<CR>
-
+" Settings for syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+        \ 'active_filetypes': [],
+        \ 'passive_filetypes': [] }
+let g:syntastic_python_checkers = ['flake8']
