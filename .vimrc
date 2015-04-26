@@ -2,25 +2,31 @@
 " VIM Configuration
 " =================================
 
-" Automatic reloading of .vimrc
-autocmd BufWritePost .vimrc source %
+" Make sure everything works like we think it will
+set nocompatible
+
+
+" Turn off annoying beeps and bells
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 
 " Setup Pathogen to manage your plugins
 filetype off
 filetype plugin indent off
-
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
 
 " Colorscheme
-syntax enable
+syntax on
+set t_Co=256
 set background=dark
 colorscheme solarized
-set t_Co=256
-let g:solarized_termcolors=256
+set lines=50 columns=150
 
 
 " Better copy & paste
@@ -55,7 +61,8 @@ noremap <Leader>e :quit<CR>  " Quit current window
 noremap <Leader>E :qa!<CR>   " Quit all windows
 
 
-" Bind Ctrl+<movement> keys to move around windows, instead of using Ctrl+w + <movement>
+" Bind Ctrl+<movement> keys to move around windows,
+" instead of using Ctrl+w + <movement>
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
@@ -65,6 +72,11 @@ map <C-h> <C-w>h
 " easier movement between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
+
+
+" Quickly edit/reload vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 
 " map sort function to a key
@@ -82,7 +94,9 @@ set tw=79    " width of document
 set nowrap   " don't automatically wrap on load
 set fo-=t    " don't automatically wrap text when typing
 set colorcolumn=80
-" highlight ColorColumn ctermbg=233
+set autoindent
+set copyindent
+set relativenumber
 
 
 " Useful settings
@@ -90,12 +104,13 @@ set history=700
 set undolevels=700
 
 
-"Use TABs not spaces
+" Use tabs not spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+set smarttab
 
 
 " Make search case insensitive
@@ -115,6 +130,20 @@ set noswapfile
 imap jj <Esc>
 
 
+" Change <F1> to <ESC> so help won't show up
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+
+" Use semi-colon instead of colon for commands
+nnoremap ; :
+
+
+" Map a key to remove all trailing whitespace in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+
 " =========================
 " Plugins to Download
 " ========================
@@ -125,8 +154,8 @@ imap jj <Esc>
 "
 " Download all vim addons into ~/.vim/bundle and then call
 " execute pathogen#infect()
-" 
-" Ctrlp 
+"
+" Ctrlp
 " https://github.com/kien/ctrlp.vim
 "
 " Fugitive
