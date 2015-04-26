@@ -1,0 +1,162 @@
+" ======================
+" VIM Configuration
+" ======================
+
+" Make sure everything works like we think it will
+set nocompatible
+
+
+" Turn off annoying beeps and bells
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+
+" Setup Pathogen to manage all plugins
+filetype off
+filetype plugin indent off
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+
+
+" Colorscheme and font
+syntax enable
+set background=dark
+let g:solarized_italic=0
+colorscheme solarized
+set anti enc=utf-8
+set guifont=Source\ Code\ Pro:h10.5
+set lines=50 columns=150
+
+
+" Better copy & paste
+set pastetoggle=<F2>
+set clipboard=unnamed
+
+
+" Mouse and backspace
+set mouse=a
+set bs=2
+
+
+" Rebind <Leader> key
+let mapleader=","
+
+
+" Remap ctrl-s to save
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+:imap <c-s> <Esc><c-s>
+
+
+" Bind nohl
+" Removes highlight of your last search
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <c-n> :nohl<CR>
+
+
+" Quit quit command
+noremap <Leader>e :quit<CR>  " Quit current window
+noremap <Leader>E :qa!<CR>   " Quit all windows
+
+
+" Bind Ctrl+<movement> keys to move around windows
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+
+
+" Easier movement between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+
+" Map sort function to a key
+noremap <Leader>s :sort<CR>
+
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYGVIMRC<CR>
+nmap <silent> <leader>sv :so $MYGVIMRC<CR>
+
+
+" Easier moving of code blocks
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+
+" Showing line numbers and length
+set number   " show line numbers
+set tw=79    " set width of document
+set nowrap   " dont automatically wrap on load
+set fo-=t    " don't automatically wrap text when typing
+set colorcolumn=80
+set autoindent
+set copyindent
+set relativenumber
+
+
+" Userfull settings
+set history=700
+set undolevels=700
+
+
+" Use tabs not spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set smarttab
+
+
+" Make search case insensitve
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+
+" Diable backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" Change <F1> to <ESC> so windows help won't show up
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+
+" Use semi-colon instead of colon for commands
+nnoremap ; :
+
+
+" Map a key to remove all trailing whitespace in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+
+" ==========================
+" Vim Addon Settings
+" ==========================
+
+" CtrlP
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 'a'
+set wildignore+=*.pyc
+
+" Syntastic
+let g:syntastic_mode_map = {'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': [] }
+let g:syntastic_python_checkers = ['flake8']
+
+
+" Activate virtualenv
+:python activate_this = 'C:\\Users\\nhultz\\.virtualenvs\\dev\\Scripts\\activate_this.py'
+:python execfile(activate_this, dict(__file__=activate_this))
