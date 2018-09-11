@@ -30,6 +30,3 @@ if test -n "$SSH_CONNECTION"
 else
     set -x EDITOR nvim
 end
-
-
-
