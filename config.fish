@@ -10,15 +10,6 @@ set -x GOPATH $HOME/Projects/go
 set -x PATH $PATH (go env GOPATH)/bin
 
 # ===================
-# Nvm Setup
-# ===================
-set -x NVM_DIR $HOME/.nvm
-
-function nvm
-    bass source $NVM_DIR/nvm.sh --no-use ';' nvm $argv
-end
-
-# ===================
 # Pyenv Setup
 # ===================
 if type -q pyenv
