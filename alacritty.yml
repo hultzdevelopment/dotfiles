@@ -257,7 +257,6 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
-  - { key: H,        mods: Command, action: Hide                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
@@ -358,3 +357,30 @@ key_bindings:
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
   - { key: NumpadEnter,             chars: "\n"                          }
+
+  # re-mapping tmux keybindings
+  - { key: T,        mods: Command,       chars: "\x06\x63" } # ctrl-f c (open tab)
+  - { key: W,        mods: Command,       chars: "\x06\x78" } # ctrl-f & (close tab)
+  - { key: D,        mods: Command,       chars: "\x06\x76" } # ctrl-f v (create vertical pane)
+  - { key: D,        mods: Command|Shift, chars: "\x06\x73" } # ctrl-f s (create horizontal pane)
+
+  - { key: H,        mods: Command,       chars: "\x06\x68" } # ctrl-f h (move left a pane)
+  - { key: J,        mods: Command,       chars: "\x06\x6a" } # ctrl-f j (move down a pane)
+  - { key: K,        mods: Command,       chars: "\x06\x6b" } # ctrl-f k (move up a pane)
+  - { key: L,        mods: Command,       chars: "\x06\x6c" } # ctrl-f l (move right a pane)
+
+  - { key: Left,     mods: Command,       chars: "\x06\x48" } # ctrl-f H (resize pane left)
+  - { key: Down,     mods: Command,       chars: "\x06\x4a" } # ctrl-f J (resize pane down)
+  - { key: Up,       mods: Command,       chars: "\x06\x4b" } # ctrl-f K (resize pane up)
+  - { key: Right,    mods: Command,       chars: "\x06\x4c" } # ctrl-f L (resize pane right)
+
+  - { key: Key1,     mods: Command,       chars: "\x06\x31" } # ctrl-f 1 (go to tab 1)
+  - { key: Key2,     mods: Command,       chars: "\x06\x32" } # ctrl-f 2 (go to tab 2)
+  - { key: Key3,     mods: Command,       chars: "\x06\x33" } # ctrl-f 3 (go to tab 3)
+  - { key: Key4,     mods: Command,       chars: "\x06\x34" } # ctrl-f 4 (go to tab 4)
+  - { key: Key5,     mods: Command,       chars: "\x06\x35" } # ctrl-f 5 (go to tab 5)
+  - { key: Key6,     mods: Command,       chars: "\x06\x36" } # ctrl-f 6 (go to tab 6)
+  - { key: Key7,     mods: Command,       chars: "\x06\x37" } # ctrl-f 7 (go to tab 7)
+  - { key: Key8,     mods: Command,       chars: "\x06\x38" } # ctrl-f 8 (go to tab 8)
+  - { key: Key9,     mods: Command,       chars: "\x06\x39" } # ctrl-f 9 (go to tab 9)
+
