@@ -36,7 +36,8 @@ else
     set -x EDITOR nvim
 end
 
-# ==============================================
-# Aliases 
-# ==============================================
-alias vim="nvim"
+# Remove initial fish greeting
+set fish_greeting
+
+# Fix background color with fisher install text
+set fish_color_match --background black

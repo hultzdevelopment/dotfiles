@@ -1,0 +1,12 @@
+#################################
+#  Sample File
+#################################
+[core]
+    editor = nvim
+
+[remote "origin"]
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+
+[alias]
+    aliases = !git config -l | grep alias | cut -c 7-
+    st = status
