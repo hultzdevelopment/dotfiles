@@ -1,0 +1,11 @@
+sandbox_init_nvm(){
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+
+# create hooks for commands 'nvm', 'node' and 'nodemon'
+sandbox_hook nvm node
+sandbox_hook nvm nodemon
+
+# this one not needed: it's created automatically based on the sandbox name
+# sandbox_hook nvm nvm
