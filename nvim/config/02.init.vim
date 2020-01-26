@@ -37,3 +37,8 @@ if executable('rg')
   nnoremap <leader>/ :Rg<SPACE>
 endif
 
+" Configure netrw (File Explorer)
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_winsize=25
+

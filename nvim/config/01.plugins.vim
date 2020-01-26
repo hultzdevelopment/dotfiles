@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Gui Enhancements
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " Plug 'w0rp/ale'
 
 " Plug 'autozimu/LanguageClient-neovim', {
@@ -25,10 +25,10 @@ call plug#begin('~/.vim/plugged')
 " Plug 'ncm2/ncm2-path'
 
 " Syntactic language support
-" Plug 'cespare/vim-toml'
-" Plug 'rust-lang/rust.vim'
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Initialize plugin system
 call plug#end()
