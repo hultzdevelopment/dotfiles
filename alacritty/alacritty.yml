@@ -94,9 +94,9 @@
   #gtk_theme_variant: None
 
   # Window title
-  title: Alacritty
+  # title: Alacritty
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 10000
