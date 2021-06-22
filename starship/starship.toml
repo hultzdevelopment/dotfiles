@@ -4,6 +4,9 @@ add_newline = false
 [aws]
 disabled = true
 
+[battery]
+disabled = true
+
 [git_branch]
 symbol = " "
 
@@ -18,3 +21,6 @@ symbol = " "
 
 [rust]
 symbol = " "
+
+[kubernetes]
+disabled = true

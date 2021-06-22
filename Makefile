@@ -2,15 +2,14 @@ DOTFILES_DIR := $(HOME)/dotfiles
 
 ALACRITTY_CONFIG_DIR := $(HOME)/.config/alacritty
 NVIM_CONFIG_DIR := $(HOME)/.config/nvim
-PIP_CONFIG_DIR := $(HOME)/Library/Application Support/pip
 SANDBOXD_CONFIG_DIR := $(HOME)/.config/sandboxd
 STARSHIP_CONFIG_DIR := $(HOME)/.config
 TMUX_CONFIG_DIR := $(HOME)
 ZSH_CONFIG_DIR := $(HOME)
 
-.PHONY: all alacritty nvim pip sandboxd starship tmux zsh
+.PHONY: all alacritty nvim sandboxd starship tmux zsh
 
-all: alacritty nvim pip sandboxd starship tmux zsh
+all: alacritty nvim sandboxd starship tmux zsh
 
 alacritty:
 	${INFO} "Alacritty"
@@ -33,17 +32,6 @@ nvim:
 	@mkdir -p $(NVIM_CONFIG_DIR)/config
 	@ln -sf $(DOTFILES_DIR)/nvim/init.vim $(NVIM_CONFIG_DIR)/init.vim
 	@ln -sf $(DOTFILES_DIR)/nvim/config/* $(NVIM_CONFIG_DIR)/config
-	@echo "Config linked successfully."
-
-pip:
-	${INFO} "Pip"
-	@echo "Removing Pip config..."
-	@rm -rf $(PIP_CONFIG_DIR)
-	@echo "Config removed."
-
-	@echo "Linking Pip config..."
-	@mkdir -p $(PIP_CONFIG_DIR)
-	@ln -sf $(DOTFILES_DIR)/pip/pip.conf "$(PIP_CONFIG_DIR)/pip.conf"
 	@echo "Config linked successfully."
 
 sandboxd:

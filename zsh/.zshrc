@@ -29,6 +29,11 @@ alias find="fd"
 alias vim="nvim"
 
 # ====================================================
+# Add Local Bin
+# ====================================================
+export PATH="$PATH:$HOME/.local/bin"
+
+# ====================================================
 # Homebrew
 # ====================================================
 export PATH="/usr/local/sbin:$PATH"
@@ -57,17 +62,6 @@ GCLOUD_SDK=$HOME/google-cloud-sdk/path.zsh.inc
 
 GCLOUD_COMPLETION=$HOME/google-cloud-sdk/completion.zsh.inc
 [ -f $GCLOUD_COMPLETION ] && source $GCLOUD_COMPLETION
-
-# ====================================================
-# JENV - https://github.com/jenv/jenv
-# ====================================================
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# ====================================================
-# NVM - https://github.com/nvm-sh/nvm
-# ====================================================
-export NVM_DIR="$HOME/.nvm"
 
 # ====================================================
 # Starship Prompt - https://github.com/starship/starship
